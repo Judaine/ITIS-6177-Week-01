@@ -1,3 +1,4 @@
+#Code example from video https://www.youtube.com/watch?v=gAkwW2tuIqE
 FROM node:12
 WORKDIR /app
 COPY package*.json ./
