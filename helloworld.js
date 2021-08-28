@@ -1,15 +1,10 @@
 //Code example used from https://nodejs.org/en/docs/guides/getting-started-guide/
-const http = require('http');
+const app = require('express')();
 
-const hostname = '127.0.0.1';
-const port = 3000;
+app.get('/', (req, res) =>
+    res.json({ message: 'Hello World!'})
+);
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
+const port = process.env.PORT || 8080;
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(port, () => console.log(`app listening on http://localhost:${port}/`));
